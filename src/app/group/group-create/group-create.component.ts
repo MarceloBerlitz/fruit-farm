@@ -43,6 +43,8 @@ export class GroupCreateComponent implements OnInit {
       }, err => {
         alert(err);
       })
+    } else {
+      alert('Formulário inválido.')
     }
   }
 

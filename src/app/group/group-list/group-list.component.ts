@@ -21,7 +21,8 @@ export class GroupListComponent implements OnInit {
       this.groupList = res.map(r => ({
           image: '/assets/macieira.jpg',
           title: r.name,
-          text: r.description
+          text: r.description,
+          link: `/grupos/${r._id}`
         }));
     });
   }

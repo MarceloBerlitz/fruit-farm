@@ -1,3 +1,8 @@
 .sub-menu {
     padding: 1rem 0;
 }
+
+.required-fields {
+    font-size: .8rem;
+    color: #555;
+}
