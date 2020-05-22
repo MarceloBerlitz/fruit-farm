@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GroupListComponent } from './group-list/group-list.component';
 import { SharedModule } from '../shared/shared.module';
-import { GroupService } from './service/group.service';
 import { GroupCreateComponent } from './group-create/group-create.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,10 @@ import { GroupCreateComponent } from './group-create/group-create.component';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     SharedModule,
     HttpClientModule,
-  ],
-  providers: [
-    GroupService
+    ReactiveFormsModule
   ]
 })
 export class GroupModule { }
