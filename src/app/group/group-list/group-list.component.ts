@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GroupService } from '../service/group.service';
 import { ListItemModel } from 'src/app/shared/list-item/list-item.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-group-list',
