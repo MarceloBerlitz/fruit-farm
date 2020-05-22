@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GroupComponent } from './group/component/group.component';
+import { GroupListComponent } from './group/group-list/group-list.component';
 
 
 const routes: Routes = [
-  { path: 'grupos', component: GroupComponent },
+  { path: 'grupos', component: GroupListComponent },
   { path: '', redirectTo: '/grupos', pathMatch: 'full' },
 ];
 

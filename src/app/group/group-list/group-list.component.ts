@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+
 import { GroupService } from '../service/group.service';
 import { ListItemModel } from 'src/app/shared/list-item/list-item.model';
 
 @Component({
-  selector: 'app-group',
-  templateUrl: './group.component.html',
-  styleUrls: ['./group.component.css']
+  selector: 'app-group-list',
+  templateUrl: './group-list.component.html',
+  styleUrls: ['./group-list.component.css', '../../shared/style/style.css']
 })
-export class GroupComponent implements OnInit {
+export class GroupListComponent implements OnInit {
 
   public groupList: ListItemModel[] = [];
 
