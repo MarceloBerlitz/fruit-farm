@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 import { Observable } from 'rxjs';
@@ -13,8 +13,13 @@ export class GroupService {
     private http: HttpClient
   ) { }
 
-  public getAll(): Observable<GroupListResponse[]> {
-    return this.http.get<GroupListResponse[]>(`${environment.baseUrl}/groups`); 
+  public getAll(tree?: string): Observable<GroupListResponse[]> {
+    let params;
+    if (tree) {
+      params = new HttpParams()
+      .set('tree', tree);
+    }
+    return this.http.get<GroupListResponse[]>(`${environment.baseUrl}/groups`, { params }); 
   }
 
   public get(id: string): Observable<GroupDetailsResponse> {

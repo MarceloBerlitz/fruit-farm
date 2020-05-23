@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
+
 import { TreeListResponse } from './integration/response/tree-list.response';
+import { TreeDetailsResponse } from './integration/response/tree-details.response';
 
 @Injectable()
 export class TreeService {
@@ -18,6 +20,10 @@ export class TreeService {
       params = new HttpParams().set('group', group);
     }
     return this.http.get<TreeListResponse[]>(`${environment.baseUrl}/trees`, { params })
+  }
+
+  public get(id: string): Observable<TreeDetailsResponse> {
+    return this.http.get<TreeDetailsResponse>(`${environment.baseUrl}/trees/${id}`);
   }
 
 }
