@@ -4,6 +4,7 @@ export class ListItemModel {
         public title?: string,
         public text?: string,
         public footer?: string,
-        public link?: string
+        public link?: string,
+        public value?: string
     ) {}
 }

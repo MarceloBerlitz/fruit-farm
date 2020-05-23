@@ -25,5 +25,9 @@ export class GroupService {
     return this.http.post<any>(`${environment.baseUrl}/groups`, request);
   }
 
+  public deleteGroup(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.baseUrl}/groups/${id}`);
+  }
+
 
 }

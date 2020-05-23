@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { GroupService } from 'src/app/core/group/group.service';
 import { TreeService } from 'src/app/core/tree/tree.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 declare var $: any;
 
 @Component({
@@ -19,6 +21,7 @@ export class GroupCreateComponent implements OnInit {
   });
 
   constructor(
+    private router: Router,
     private treeService: TreeService,
     private groupService: GroupService
   ) { }
@@ -40,6 +43,7 @@ export class GroupCreateComponent implements OnInit {
         trees: this.form.controls['trees'].value
       }).subscribe(res => {
         alert('Grupo criado com sucesso!');
+        this.router.navigate(['groups']);
       }, err => {
         alert(err);
       })

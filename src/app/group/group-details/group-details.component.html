@@ -1,5 +1,8 @@
 <div class="container">
-    <div class="sub-menu"></div>
+    <div class="sub-menu">
+        <button class="btn btn-secondary">Editar grupo</button>
+        <button class="btn btn-danger" (click)="deleteGroup()">Excluir grupo</button>
+    </div>
     <h1 *ngIf="!group">Carregando...</h1>
     <app-list-item *ngIf="group" [model]="group"></app-list-item>
     <div class="row">

@@ -2,6 +2,10 @@
     padding: 1rem 0;
 }
 
+.sub-menu * {
+    margin-right: 0.4rem;
+}
+
 .required-fields {
     font-size: .8rem;
     color: #555;

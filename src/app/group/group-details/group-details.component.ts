@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { switchMap, tap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs'
@@ -22,6 +22,7 @@ export class GroupDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private groupService: GroupService,
     private treeService: TreeService,
     private cropService: CropService
@@ -34,7 +35,8 @@ export class GroupDetailsComponent implements OnInit {
         this.group = {
           image: '/assets/macieira.jpg',
           title: res.name,
-          text: res.description
+          text: res.description,
+          value: res._id
         };
       }),
       switchMap(res => forkJoin(
@@ -55,6 +57,16 @@ export class GroupDetailsComponent implements OnInit {
           footer: `${crop.grossWeight}kg`
         }));
       }, alert);
+  }
+
+  public deleteGroup(): void {
+    if(confirm(`Deseja mesmo excluir o grupo ${this.group.title}?`)) {
+      this.groupService.deleteGroup(this.group.value)
+        .subscribe(res => {
+          alert('Grupo excluído com sucesso.');
+          this.router.navigate(['groups']);
+        }, res => alert(JSON.stringify(res)));
+    }
   }
 
 }
