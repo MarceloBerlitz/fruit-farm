@@ -1,8 +1,8 @@
 export class TreeListResponse {
     constructor(
-        private _id: string,
-        private description: string,
-        private date: string,
-        private species: any
+        public _id: string,
+        public description: string,
+        public date: string,
+        public species: any
     ) { }
 }

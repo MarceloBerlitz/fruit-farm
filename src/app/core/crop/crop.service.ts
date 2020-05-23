@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-
-import { TreeListResponse } from './integration/response/tree-list.response';
+import { CropListResponse } from './integration/response/crop-list.response';
 
 @Injectable()
-export class TreeService {
+export class CropService {
 
   constructor(
     private http: HttpClient
   ) { }
 
-  public getAll(group?: string): Observable<TreeListResponse[]> {
+  public getAll(group?: string): Observable<CropListResponse[]> {
     let params;
     if (group) {
       params = new HttpParams().set('group', group);
     }
-    return this.http.get<TreeListResponse[]>(`${environment.baseUrl}/trees`, { params })
+    return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`, { params })
   }
-
+  
 }

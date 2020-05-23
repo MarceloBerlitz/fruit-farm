@@ -1,6 +1,7 @@
 <div class="container">
     <div class="sub-menu"></div>
-    <app-list-item [model]="group"></app-list-item>
+    <h1 *ngIf="!group">Carregando...</h1>
+    <app-list-item *ngIf="group" [model]="group"></app-list-item>
     <div class="row">
         <div class="col-md-6">
             <h2>Árvores</h2>
