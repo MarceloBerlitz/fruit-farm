@@ -29,7 +29,7 @@ export class SpeciesCreateComponent implements OnInit {
         description: this.form.controls['description'].value
       }).subscribe(res => {
         alert('Espécie cadastrada com sucesso!');
-        this.router.navigate(['especies']);
+        this.router.navigate(['/especies']);
       }, err => {
         alert(JSON.stringify(err));
       })

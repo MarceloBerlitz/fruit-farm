@@ -44,7 +44,7 @@ export class TreeCreateComponent implements OnInit {
         species: this.form.controls['species'].value
       }).subscribe(res => {
         alert('Árvore cadastrada com sucesso!');
-        this.router.navigate(['arvores']);
+        this.router.navigate(['/arvores']);
       }, err => {
         alert(JSON.stringify(err));
       })

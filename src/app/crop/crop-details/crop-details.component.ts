@@ -36,13 +36,13 @@ export class CropDetailsComponent implements OnInit {
       this.service.delete(this.crop.value)
         .subscribe(res => {
         alert('Colheita excluída com sucesso.');
-        this.router.navigate(['colheitas']);
+        this.router.navigate(['/colheitas']);
       }, res => alert(JSON.stringify(res)));
     }
   }
 
   public editCrop(): void {
-    this.router.navigate([`colheitas/${this.crop.value}/editar`]);
+    this.router.navigate([`/colheitas/${this.crop.value}/editar`]);
   }
 
 }

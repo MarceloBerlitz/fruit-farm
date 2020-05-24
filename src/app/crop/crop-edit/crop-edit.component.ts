@@ -59,7 +59,7 @@ export class CropEditComponent implements OnInit {
         grossWeight: this.form.controls['grossWeight'].value
       }).subscribe(res => {
         alert('Colheita editada com sucesso!');
-        this.router.navigate([`colheitas/${this.id}`]);
+        this.router.navigate([`/colheitas/${this.id}`]);
       }, err => {
         alert(JSON.stringify(err));
       })

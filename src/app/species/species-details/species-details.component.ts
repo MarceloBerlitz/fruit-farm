@@ -60,7 +60,7 @@ export class SpeciesDetailsComponent implements OnInit {
       this.speciesService.delete(this.species.value)
         .subscribe(res => {
           alert('Espécie excluída com sucesso.');
-          this.router.navigate(['especies']);
+          this.router.navigate(['/especies']);
         }, res => alert(JSON.stringify(res)));
     }
   }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { GroupListComponent } from './group-list/group-list.component';
 import { SharedModule } from '../shared/shared.module';
@@ -20,7 +21,8 @@ import { GroupEditComponent } from './group-edit/group-edit.component';
     CommonModule,
     CoreModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class GroupModule { }

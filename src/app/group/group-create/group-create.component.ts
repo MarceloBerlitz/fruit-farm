@@ -43,7 +43,7 @@ export class GroupCreateComponent implements OnInit {
         trees: this.form.controls['trees'].value
       }).subscribe(res => {
         alert('Grupo criado com sucesso!');
-        this.router.navigate(['groups']);
+        this.router.navigate(['/groups']);
       }, err => {
         alert(JSON.stringify(err));
       })

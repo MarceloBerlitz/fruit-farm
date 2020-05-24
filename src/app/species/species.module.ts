@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { SpeciesCreateComponent } from './species-create/species-create.component';
 import { SpeciesListComponent } from './species-list/species-list.component';
@@ -18,7 +19,8 @@ import { CoreModule } from '../core/core.module';
     CommonModule,
     CoreModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class SpeciesModule { }

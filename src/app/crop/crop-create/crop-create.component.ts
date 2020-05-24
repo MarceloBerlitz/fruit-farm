@@ -47,7 +47,7 @@ export class CropCreateComponent implements OnInit {
         grossWeight: this.form.controls['grossWeight'].value
       }).subscribe(res => {
         alert('Colheita cadastrada com sucesso!');
-        this.router.navigate(['colheitas']);
+        this.router.navigate(['/colheitas']);
       }, err => {
         alert(JSON.stringify(err));
       })

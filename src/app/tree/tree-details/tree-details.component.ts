@@ -64,13 +64,13 @@ export class TreeDetailsComponent implements OnInit {
       this.treeService.delete(this.tree.value)
         .subscribe(res => {
         alert('Árvore excluída com sucesso.');
-        this.router.navigate(['arvores']);
+        this.router.navigate(['/arvores']);
       }, res => alert(JSON.stringify(res)));
     }
   }
 
   public editTree(): void {
-    this.router.navigate([`arvores/${this.tree.value}/editar`]);
+    this.router.navigate([`/arvores/${this.tree.value}/editar`]);
   }
 
 }

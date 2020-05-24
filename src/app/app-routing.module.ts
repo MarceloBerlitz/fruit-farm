@@ -20,42 +20,42 @@ import { CropEditComponent } from './crop/crop-edit/crop-edit.component';
 const routes: Routes = [
   {
     path: 'grupos', children: [
-      { path: '', component: GroupListComponent },
       { path: 'novo', component: GroupCreateComponent },
       { path: ':id', children: [
-        { path: '', component: GroupDetailsComponent },
-        { path: 'editar', component: GroupEditComponent }
-      ] }
+        { path: 'editar', component: GroupEditComponent },
+        { path: '', component: GroupDetailsComponent }
+      ] },
+      { path: '', component: GroupListComponent }
     ]
   },
   { 
     path: 'arvores', children: [
-    { path: '', component: TreeListComponent },
     { path: 'nova', component: TreeCreateComponent },
     { path: ':id', children: [
+      { path: 'editar', component: TreeEditComponent },
       { path: '', component: TreeDetailsComponent },
-      { path: 'editar', component: TreeEditComponent }
-    ]}
+    ]},
+    { path: '', component: TreeListComponent },
   ]},
   {
     path: 'especies', children: [
-      { path: '', component: SpeciesListComponent },
       { path: 'nova', component: SpeciesCreateComponent },
       { path: ':id', component: SpeciesDetailsComponent },
+      { path: '', component: SpeciesListComponent },
     ]
   },
   {
     path: 'colheitas', children: [
-      { path: '', component: CropListComponent },
       { path: 'nova', component: CropCreateComponent },
       { path: ':id', children: [
+        { path: 'editar', component: CropEditComponent },
         { path: '', component: CropDetailsComponent },
-        { path: 'editar', component: CropEditComponent }
       ] },
+      { path: '', component: CropListComponent },
     ]
   },
-  { path: '', redirectTo: '/grupos', pathMatch: 'full' },
   { path: '**', redirectTo: '/grupos' },
+  { path: '', redirectTo: '/grupos', pathMatch: 'full' },
 ];
 
 @NgModule({

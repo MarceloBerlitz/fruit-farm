@@ -55,7 +55,7 @@ export class TreeEditComponent implements OnInit {
         species: this.form.controls['species'].value
       }).subscribe(res => {
         alert('Árvore editada com sucesso!');
-        this.router.navigate([`arvores/${this.id}`]);
+        this.router.navigate([`/arvores/${this.id}`]);
       }, err => {
         alert(JSON.stringify(err));
       })
