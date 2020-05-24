@@ -49,7 +49,7 @@ export class GroupDetailsComponent implements OnInit {
           footer: tree.date
         }));
         this.crops = c.map(crop => ({
-          title: `${crop.tree.description} - ${crop.date}`,
+          title: `${crop.tree ? crop.tree.description : 'Árvore excluída'} - ${crop.date}`,
           text: crop.info ? crop.info[0] : '',
           footer: `${crop.grossWeight}kg`
         }));

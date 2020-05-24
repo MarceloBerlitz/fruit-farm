@@ -23,7 +23,7 @@ export class CropDetailsComponent implements OnInit {
     this.service.get(this.route.snapshot.paramMap.get('id'))
       .subscribe(res => {
         this.crop = {
-          title: `${res.tree.description} - ${res.date}`,
+          title: `${res.tree ? res.tree.description : 'Árvore excluída'} - ${res.date}`,
           text: res.info ? res.info[0] : '',
           footer: `${res.grossWeight}kg`,
           value: res._id

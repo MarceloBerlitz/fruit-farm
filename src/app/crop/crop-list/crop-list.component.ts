@@ -20,7 +20,7 @@ export class CropListComponent implements OnInit {
     this.service.getAll()
       .subscribe(res => {
         this.crops = res.map(r => ({
-          title: `${r.tree.description} - ${r.date}`,
+          title: `${r.tree ? r.tree.description : 'Árvore excluída'} - ${r.date}`,
           text: r.info ? r.info[0] : '',
           footer: `${r.grossWeight}kg`,
           link: `colheitas/${r._id}`

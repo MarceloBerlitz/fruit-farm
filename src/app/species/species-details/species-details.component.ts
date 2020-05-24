@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
@@ -23,14 +23,15 @@ export class SpeciesDetailsComponent implements OnInit {
     private speciesService: SpeciesService,
     private treeService: TreeService,
     private cropService: CropService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.speciesService.get(this.route.snapshot.paramMap.get('id'))
       .pipe(
         tap(res => {
-          this.species = { title: res.description }
+          this.species = { title: res.description, value: res._id }
         }),
         switchMap(res => 
           forkJoin(
@@ -55,7 +56,13 @@ export class SpeciesDetailsComponent implements OnInit {
   }
 
   public deleteSpecies(): void {
-
+    if(confirm(`Deseja mesmo excluir a espécie ${this.species.title}?`)) {
+      this.speciesService.delete(this.species.value)
+        .subscribe(res => {
+          alert('Espécie excluída com sucesso.');
+          this.router.navigate(['especies']);
+        }, res => alert(JSON.stringify(res)));
+    }
   }
 
 }

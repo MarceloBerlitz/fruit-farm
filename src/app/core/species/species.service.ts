@@ -22,4 +22,8 @@ export class SpeciesService {
     return this.http.post(`${environment.baseUrl}/species`, species);
   }
 
+  public delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.baseUrl}/species/${id}`);
+  }
+
 }

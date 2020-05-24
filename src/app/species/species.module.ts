@@ -8,8 +8,6 @@ import { SpeciesDetailsComponent } from './species-details/species-details.compo
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 
-
-
 @NgModule({
   declarations: [
     SpeciesCreateComponent,
