@@ -15,6 +15,7 @@ import { CropCreateComponent } from './crop/crop-create/crop-create.component';
 import { CropDetailsComponent } from './crop/crop-details/crop-details.component';
 import { GroupEditComponent } from './group/group-edit/group-edit.component';
 import { TreeEditComponent } from './tree/tree-edit/tree-edit.component';
+import { CropEditComponent } from './crop/crop-edit/crop-edit.component';
 
 const routes: Routes = [
   {
@@ -47,7 +48,10 @@ const routes: Routes = [
     path: 'colheitas', children: [
       { path: '', component: CropListComponent },
       { path: 'nova', component: CropCreateComponent },
-      { path: ':id', component: CropDetailsComponent },
+      { path: ':id', children: [
+        { path: '', component: CropDetailsComponent },
+        { path: 'editar', component: CropEditComponent }
+      ] },
     ]
   },
   { path: '', redirectTo: '/grupos', pathMatch: 'full' },

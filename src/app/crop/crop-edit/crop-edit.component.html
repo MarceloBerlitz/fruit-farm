@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="sub-menu">
+        <h1>Editar colheita</h1>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="info">Informações*</label>
+            <input type="text" class="form-control" id="info" formControlName="info">
+        </div>
+        <div class="form-group">
+            <label for="grossWeight">Peso bruto (kg)*</label>
+            <input type="number" class="form-control" id="grossWeight" formControlName="grossWeight">
+        </div>
+        <div class="form-group">
+            <label for="date">Data*</label>
+            <input type="date" class="form-control" id="date" rows="3" formControlName="date">
+        </div>
+        <div class="form-group">
+            <label for="tree">Árvore*</label>
+            <select id="tree" class="form-control selectpicker" formControlName="tree">
+                <option *ngFor="let tree of trees" [value]="tree._id">{{ tree.species.description }} - {{ tree.description }}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary float-right">Salvar</button>
+    </form>
+    <span class="required-fields">*Campos obrigatórios.</span>
+</div>

@@ -44,4 +44,8 @@ export class CropService {
     return this.http.delete<void>(`${environment.baseUrl}/crops/${id}`);
   }
 
+  public edit(id: string, crop: any): Observable<any> {
+    return this.http.put<any>(`${environment.baseUrl}/crops/${id}`, crop);
+  }
+
 }

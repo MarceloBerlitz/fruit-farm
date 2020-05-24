@@ -41,4 +41,8 @@ export class CropDetailsComponent implements OnInit {
     }
   }
 
+  public editCrop(): void {
+    this.router.navigate([`colheitas/${this.crop.value}/editar`]);
+  }
+
 }

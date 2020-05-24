@@ -7,11 +7,12 @@ import { CropDetailsComponent } from './crop-details/crop-details.component';
 import { CropCreateComponent } from './crop-create/crop-create.component';
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
+import { CropEditComponent } from './crop-edit/crop-edit.component';
 
 
 
 @NgModule({
-  declarations: [CropListComponent, CropDetailsComponent, CropCreateComponent],
+  declarations: [CropListComponent, CropDetailsComponent, CropCreateComponent, CropEditComponent],
   imports: [
     CommonModule,
     CoreModule,

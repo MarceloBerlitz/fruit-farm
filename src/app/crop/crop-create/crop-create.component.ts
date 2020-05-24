@@ -20,7 +20,7 @@ export class CropCreateComponent implements OnInit {
     date: new FormControl('', Validators.required),
     grossWeight: new FormControl('', Validators.required),
     tree: new FormControl('', Validators.required)
-  })
+  });
 
   constructor(
     private cropService: CropService,
