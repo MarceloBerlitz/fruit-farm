@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { GroupModule } from './group/group.module';
 import { TreeModule } from './tree/tree.module';
 import { SpeciesModule } from './species/species.module';
+import { CropModule } from './crop/crop.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SpeciesModule } from './species/species.module';
     AppRoutingModule,
     GroupModule,
     TreeModule,
-    SpeciesModule
+    SpeciesModule,
+    CropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

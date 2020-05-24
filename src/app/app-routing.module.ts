@@ -10,6 +10,9 @@ import { TreeCreateComponent } from './tree/tree-create/tree-create.component';
 import { SpeciesListComponent } from './species/species-list/species-list.component';
 import { SpeciesCreateComponent } from './species/species-create/species-create.component';
 import { SpeciesDetailsComponent } from './species/species-details/species-details.component';
+import { CropListComponent } from './crop/crop-list/crop-list.component';
+import { CropCreateComponent } from './crop/crop-create/crop-create.component';
+import { CropDetailsComponent } from './crop/crop-details/crop-details.component';
 
 const routes: Routes = [
   {
@@ -19,7 +22,8 @@ const routes: Routes = [
       { path: ':id', component: GroupDetailsComponent }
     ]
   },
-  { path: 'arvores', children: [
+  { 
+    path: 'arvores', children: [
     { path: '', component: TreeListComponent },
     { path: 'nova', component: TreeCreateComponent },
     { path: ':id', component: TreeDetailsComponent }
@@ -29,6 +33,13 @@ const routes: Routes = [
       { path: '', component: SpeciesListComponent },
       { path: 'nova', component: SpeciesCreateComponent },
       { path: ':id', component: SpeciesDetailsComponent },
+    ]
+  },
+  {
+    path: 'colheitas', children: [
+      { path: '', component: CropListComponent },
+      { path: 'nova', component: CropCreateComponent },
+      { path: ':id', component: CropDetailsComponent },
     ]
   },
   { path: '', redirectTo: '/grupos', pathMatch: 'full' },
