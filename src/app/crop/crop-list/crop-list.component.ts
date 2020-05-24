@@ -21,7 +21,7 @@ export class CropListComponent implements OnInit {
       .subscribe(res => {
         this.crops = res.map(r => ({
           title: `${r.tree.description} - ${r.date}`,
-          text: r.info.reduce((acc, cur) => `${cur} ${acc}`, ''),
+          text: r.info ? r.info[0] : '',
           footer: `${r.grossWeight}kg`,
           link: `colheitas/${r._id}`
         }))

@@ -48,7 +48,7 @@ export class SpeciesDetailsComponent implements OnInit {
 
         this.crops = c.map(crop => ({
           title: `${crop.tree.description} - ${crop.date}`,
-          text: crop.info.reduce((acc, cur) => `${cur} ${acc}`, ''),
+          text: crop.info ? crop.info[0] : '',
           footer: `${crop.grossWeight}kg`
         }));
       })

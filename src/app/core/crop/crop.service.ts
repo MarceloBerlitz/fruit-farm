@@ -31,4 +31,8 @@ export class CropService {
     return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`, { params });
   }
 
+  public create(crop: any): Observable<any> {
+    return this.http.post<any>(`${environment.baseUrl}/crops`, crop);
+  }
+
 }
