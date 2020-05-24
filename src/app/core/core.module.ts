@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GroupService } from './group/group.service';
 import { TreeService } from './tree/tree.service';
 import { CropService } from './crop/crop.service';
+import { SpeciesService } from './species/species.service';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,8 @@ import { CropService } from './crop/crop.service';
   providers: [
     GroupService,
     TreeService,
-    CropService
+    CropService,
+    SpeciesService
   ]
 })
 export class CoreModule { }

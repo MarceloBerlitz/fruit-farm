@@ -26,11 +26,11 @@ export class GroupService {
     return this.http.get<GroupDetailsResponse>(`${environment.baseUrl}/groups/${id}`)
   }
 
-  public createGroup(request: any): Observable<any> {
+  public create(request: any): Observable<any> {
     return this.http.post<any>(`${environment.baseUrl}/groups`, request);
   }
 
-  public deleteGroup(id: string): Observable<void> {
+  public delete(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.baseUrl}/groups/${id}`);
   }
 

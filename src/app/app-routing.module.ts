@@ -6,6 +6,7 @@ import { GroupCreateComponent } from './group/group-create/group-create.componen
 import { GroupDetailsComponent } from './group/group-details/group-details.component';
 import { TreeListComponent } from './tree/tree-list/tree-list.component';
 import { TreeDetailsComponent } from './tree/tree-details/tree-details.component';
+import { TreeCreateComponent } from './tree/tree-create/tree-create.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   { path: 'arvores', children: [
     { path: '', component: TreeListComponent },
+    { path: 'nova', component: TreeCreateComponent },
     { path: ':id', component: TreeDetailsComponent }
   ]},
   { path: '', redirectTo: '/grupos', pathMatch: 'full' },

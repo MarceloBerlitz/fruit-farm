@@ -26,4 +26,12 @@ export class TreeService {
     return this.http.get<TreeDetailsResponse>(`${environment.baseUrl}/trees/${id}`);
   }
 
+  public create(tree: any): Observable<any> {
+    return this.http.post<any>(`${environment.baseUrl}/trees`, tree);
+  }
+
+  public delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.baseUrl}/trees/${id}`);
+  }
+
 }

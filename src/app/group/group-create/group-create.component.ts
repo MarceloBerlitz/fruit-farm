@@ -37,7 +37,7 @@ export class GroupCreateComponent implements OnInit {
 
   public submitForm() {
     if (this.form.valid) {
-      this.groupService.createGroup({
+      this.groupService.create({
         name: this.form.controls['name'].value,
         description: this.form.controls['description'].value,
         trees: this.form.controls['trees'].value
@@ -45,7 +45,7 @@ export class GroupCreateComponent implements OnInit {
         alert('Grupo criado com sucesso!');
         this.router.navigate(['groups']);
       }, err => {
-        alert(err);
+        alert(JSON.stringify(err));
       })
     } else {
       alert('Formulário inválido.')

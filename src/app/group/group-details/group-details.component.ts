@@ -61,7 +61,7 @@ export class GroupDetailsComponent implements OnInit {
 
   public deleteGroup(): void {
     if(confirm(`Deseja mesmo excluir o grupo ${this.group.title}?`)) {
-      this.groupService.deleteGroup(this.group.value)
+      this.groupService.delete(this.group.value)
         .subscribe(res => {
           alert('Grupo excluído com sucesso.');
           this.router.navigate(['groups']);

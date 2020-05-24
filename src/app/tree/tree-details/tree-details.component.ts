@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
@@ -23,7 +23,8 @@ export class TreeDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private treeService: TreeService,
     private groupService: GroupService,
-    private cropService: CropService
+    private cropService: CropService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +35,8 @@ export class TreeDetailsComponent implements OnInit {
             image: '/assets/macieira.jpg',
             title: res.species.description,
             text: res.description,
-            footer: res.date
+            footer: res.date,
+            value: res._id
           }
         }),
         switchMap(res => forkJoin(
@@ -61,7 +63,13 @@ export class TreeDetailsComponent implements OnInit {
   }
 
   public deleteTree(): void {
-
+    if(confirm(`Deseja mesmo excluir a árvore ${this.tree.text}?`)) {
+      this.treeService.delete(this.tree.value)
+        .subscribe(res => {
+        alert('Árvore excluída com sucesso.');
+        this.router.navigate(['arvores']);
+      }, res => alert(JSON.stringify(res)));
+    }
   }
 
 }
