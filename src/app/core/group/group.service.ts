@@ -35,5 +35,8 @@ export class GroupService {
     return this.http.delete<void>(`${environment.baseUrl}/groups/${id}`);
   }
 
+  public edit(id: string, group: any): Observable<any> {
+    return this.http.put<any>(`${environment.baseUrl}/groups/${id}`, group);
+  }
 
 }

@@ -13,13 +13,17 @@ import { SpeciesDetailsComponent } from './species/species-details/species-detai
 import { CropListComponent } from './crop/crop-list/crop-list.component';
 import { CropCreateComponent } from './crop/crop-create/crop-create.component';
 import { CropDetailsComponent } from './crop/crop-details/crop-details.component';
+import { GroupEditComponent } from './group/group-edit/group-edit.component';
 
 const routes: Routes = [
   {
     path: 'grupos', children: [
       { path: '', component: GroupListComponent },
       { path: 'novo', component: GroupCreateComponent },
-      { path: ':id', component: GroupDetailsComponent }
+      { path: ':id', children: [
+        { path: '', component: GroupDetailsComponent },
+        { path: 'editar', component: GroupEditComponent }
+      ] }
     ]
   },
   { 
