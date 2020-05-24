@@ -55,7 +55,7 @@ export class GroupEditComponent implements OnInit {
         trees: this.form.controls['trees'].value
       }).subscribe(res => {
         alert('Grupo editado com sucesso!');
-        this.router.navigate([`groups/${this.id}`]);
+        this.router.navigate([`grupos/${this.id}`]);
       }, err => {
         alert(JSON.stringify(err));
       })

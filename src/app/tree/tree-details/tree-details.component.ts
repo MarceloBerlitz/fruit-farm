@@ -32,7 +32,7 @@ export class TreeDetailsComponent implements OnInit {
       .pipe(
         tap(res => {
           this.tree = {
-            title: res.species.description,
+            title: res.species ? res.species.description : 'Espécie excluída',
             text: res.description,
             footer: res.date,
             value: res._id

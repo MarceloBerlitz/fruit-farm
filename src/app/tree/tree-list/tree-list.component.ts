@@ -19,7 +19,7 @@ export class TreeListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe(res => {
       this.treeList = res.map(r => ({
-          text: r.species.description,
+          text: r.species ? r.species.description : 'Espécie excluída',
           title: r.description,
           footer: r.date,
           link: `/arvores/${r._id}`
