@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { GroupListComponent } from './group-list/group-list.component';
+import { SpeciesCreateComponent } from './species-create/species-create.component';
+import { SpeciesListComponent } from './species-list/species-list.component';
+import { SpeciesDetailsComponent } from './species-details/species-details.component';
 import { SharedModule } from '../shared/shared.module';
-import { GroupCreateComponent } from './group-create/group-create.component';
 import { CoreModule } from '../core/core.module';
-import { GroupDetailsComponent } from './group-details/group-details.component';
+
+
 
 @NgModule({
   declarations: [
-    GroupListComponent,
-    GroupCreateComponent,
-    GroupDetailsComponent
+    SpeciesCreateComponent,
+    SpeciesListComponent,
+    SpeciesDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -21,4 +23,4 @@ import { GroupDetailsComponent } from './group-details/group-details.component';
     ReactiveFormsModule
   ]
 })
-export class GroupModule { }
+export class SpeciesModule { }

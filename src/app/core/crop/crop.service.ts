@@ -12,14 +12,23 @@ export class CropService {
     private http: HttpClient
   ) { }
 
-  public getAll(group?: string, tree?: string): Observable<CropListResponse[]> {
-    let params;
-    if (group || tree) {
-      params = new HttpParams()
-      .set('group', group)
-      .set('tree', tree);
-    }
-    return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`, { params })
+  public getAll(): Observable<CropListResponse[]> {
+    return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`);
   }
-  
+
+  public getByGroup(id: string): Observable<CropListResponse[]> {
+      const params = new HttpParams().set('group', id);
+    return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`, { params });
+  }
+
+  public getByTree(id: string): Observable<CropListResponse[]> {
+    const params = new HttpParams().set('tree', id);
+  return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`, { params });
+  }
+
+  public getBySpecies(id: string): Observable<CropListResponse[]> {
+    const params = new HttpParams().set('species', id);
+    return this.http.get<CropListResponse[]>(`${environment.baseUrl}/crops`, { params });
+  }
+
 }

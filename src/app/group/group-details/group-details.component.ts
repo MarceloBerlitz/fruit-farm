@@ -33,25 +33,22 @@ export class GroupDetailsComponent implements OnInit {
     .pipe(
       tap(res => {
         this.group = {
-          image: '/assets/macieira.jpg',
           title: res.name,
           text: res.description,
           value: res._id
         };
       }),
       switchMap(res => forkJoin(
-        this.treeService.getAll(res._id),
-        this.cropService.getAll(res._id)
+        this.treeService.getByGroup(res._id),
+        this.cropService.getByGroup(res._id)
         )))
       .subscribe(res => {
         const [ t, c ] = res;
         this.trees = t.map(tree => ({
-          image: '/assets/macieira.jpg',
           title: `${tree.species.description} - ${tree.description}`,
           footer: tree.date
         }));
         this.crops = c.map(crop => ({
-          image: '/assets/macieira.jpg',
           title: `${crop.tree.description} - ${crop.date}`,
           text: crop.info.reduce((acc, cur) => `${cur} ${acc}`, ''),
           footer: `${crop.grossWeight}kg`

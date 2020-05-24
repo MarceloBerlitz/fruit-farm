@@ -19,7 +19,6 @@ import { TreeCreateComponent } from './tree-create/tree-create.component';
     CommonModule,
     CoreModule,
     SharedModule,
-    HttpClientModule,
     ReactiveFormsModule
   ]
 })

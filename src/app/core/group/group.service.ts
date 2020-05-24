@@ -13,14 +13,15 @@ export class GroupService {
     private http: HttpClient
   ) { }
 
-  public getAll(tree?: string): Observable<GroupListResponse[]> {
-    let params;
-    if (tree) {
-      params = new HttpParams()
-      .set('tree', tree);
-    }
+  public getAll(): Observable<GroupListResponse[]> {
+    return this.http.get<GroupListResponse[]>(`${environment.baseUrl}/groups`); 
+  }
+
+  public getByTree(id: string): Observable<GroupListResponse[]> {
+    const params = new HttpParams().set('tree', id);
     return this.http.get<GroupListResponse[]>(`${environment.baseUrl}/groups`, { params }); 
   }
+
 
   public get(id: string): Observable<GroupDetailsResponse> {
     return this.http.get<GroupDetailsResponse>(`${environment.baseUrl}/groups/${id}`)

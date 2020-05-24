@@ -19,7 +19,6 @@ export class TreeListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe(res => {
       this.treeList = res.map(r => ({
-          image: '/assets/macieira.jpg',
           text: r.species.description,
           title: r.description,
           footer: r.date,

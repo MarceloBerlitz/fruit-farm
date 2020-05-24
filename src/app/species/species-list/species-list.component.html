@@ -1,0 +1,6 @@
+<div class="container">
+    <div class="sub-menu">
+        <a class="btn btn-secondary" href="/especies/nova">Nova espécie</a>
+    </div>
+    <app-list-item *ngFor="let specie of species" [model]="specie"></app-list-item>
+</div>

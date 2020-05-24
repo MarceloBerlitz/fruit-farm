@@ -14,12 +14,18 @@ export class TreeService {
     private http: HttpClient
   ) { }
 
-  public getAll(group?: string): Observable<TreeListResponse[]> {
-    let params;
-    if (group) {
-      params = new HttpParams().set('group', group);
-    }
-    return this.http.get<TreeListResponse[]>(`${environment.baseUrl}/trees`, { params })
+  public getAll(): Observable<TreeListResponse[]> {
+    return this.http.get<TreeListResponse[]>(`${environment.baseUrl}/trees`);
+  }
+  
+  public getByGroup(id: string): Observable<TreeListResponse[]> {
+    const params = new HttpParams().set('group', id);
+    return this.http.get<TreeListResponse[]>(`${environment.baseUrl}/trees`, { params });
+  }
+
+  public getBySpecies(id: string): Observable<TreeListResponse[]> {
+    const params = new HttpParams().set('species', id);
+    return this.http.get<TreeListResponse[]>(`${environment.baseUrl}/trees`, { params });
   }
 
   public get(id: string): Observable<TreeDetailsResponse> {

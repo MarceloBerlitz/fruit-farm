@@ -21,7 +21,6 @@ export class ListItemComponent implements OnInit {
   }
 
   public redirecionar() {
-    console.log('mm', this.model.link)
     this.router.navigate([ this.model.link ]);
   }
 

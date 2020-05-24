@@ -10,9 +10,12 @@ export class SpeciesService {
     private http: HttpClient
   ) { }
 
-
   public getAll(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/species`);
+  }
+
+  public get(id: string): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/species/${id}`);
   }
 
 }

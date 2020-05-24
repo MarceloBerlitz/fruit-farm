@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { GroupModule } from './group/group.module';
 import { TreeModule } from './tree/tree.module';
+import { SpeciesModule } from './species/species.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TreeModule } from './tree/tree.module';
     BrowserModule,
     AppRoutingModule,
     GroupModule,
-    TreeModule
+    TreeModule,
+    SpeciesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

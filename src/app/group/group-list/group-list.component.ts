@@ -19,7 +19,6 @@ export class GroupListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe(res => {
       this.groupList = res.map(r => ({
-          image: '/assets/macieira.jpg',
           title: r.name,
           text: r.description,
           link: `/grupos/${r._id}`

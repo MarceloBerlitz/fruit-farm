@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="sub-menu">
+        <button class="btn btn-secondary">Editar espécie</button>
+        <button class="btn btn-danger" (click)="deleteSpecies()">Excluir espécie</button>
+    </div>
+    <h1 *ngIf="!species">Carregando...</h1>
+    <app-list-item *ngIf="species" [model]="species"></app-list-item>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Árvores</h2>
+            <app-list-item *ngFor="let tree of trees" [model]="tree"></app-list-item>
+        </div>
+        <div class="col-md-6">
+            <h2>Colheitas</h2>
+            <app-list-item *ngFor="let crop of crops" [model]="crop"></app-list-item>
+
+        </div>
+    </div>
+</div>

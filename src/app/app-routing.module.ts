@@ -7,6 +7,9 @@ import { GroupDetailsComponent } from './group/group-details/group-details.compo
 import { TreeListComponent } from './tree/tree-list/tree-list.component';
 import { TreeDetailsComponent } from './tree/tree-details/tree-details.component';
 import { TreeCreateComponent } from './tree/tree-create/tree-create.component';
+import { SpeciesListComponent } from './species/species-list/species-list.component';
+import { SpeciesCreateComponent } from './species/species-create/species-create.component';
+import { SpeciesDetailsComponent } from './species/species-details/species-details.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,13 @@ const routes: Routes = [
     { path: 'nova', component: TreeCreateComponent },
     { path: ':id', component: TreeDetailsComponent }
   ]},
+  {
+    path: 'especies', children: [
+      { path: '', component: SpeciesListComponent },
+      { path: 'nova', component: SpeciesCreateComponent },
+      { path: ':id', component: SpeciesDetailsComponent },
+    ]
+  },
   { path: '', redirectTo: '/grupos', pathMatch: 'full' },
   { path: '**', redirectTo: '/grupos' },
 ];
