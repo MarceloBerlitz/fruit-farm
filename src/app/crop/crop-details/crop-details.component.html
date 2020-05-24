@@ -1,1 +1,8 @@
-<p>crop-details works!</p>
+<div class="container">
+    <div class="sub-menu">
+        <button class="btn btn-secondary">Editar colheita</button>
+        <button class="btn btn-danger" (click)="deleteCrop()">Excluir colheita</button>
+    </div>
+    <h1 *ngIf="!crop">Carregando...</h1>
+    <app-list-item *ngIf="crop" [model]="crop"></app-list-item>
+</div>
