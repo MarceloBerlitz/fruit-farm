@@ -1,4 +1,6 @@
 # FruitFarm
+## GitHub Pages
+https://marceloberlitz.github.io/fruit-farm
 
 ## REST API
 https://github.com/MarceloBerlitz/fruit-farm-api
