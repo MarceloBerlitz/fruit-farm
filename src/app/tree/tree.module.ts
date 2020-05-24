@@ -8,12 +8,14 @@ import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { TreeDetailsComponent } from './tree-details/tree-details.component';
 import { TreeCreateComponent } from './tree-create/tree-create.component';
+import { TreeEditComponent } from './tree-edit/tree-edit.component';
 
 @NgModule({
   declarations: [
     TreeListComponent,
     TreeDetailsComponent,
-    TreeCreateComponent
+    TreeCreateComponent,
+    TreeEditComponent
   ],
   imports: [
     CommonModule,

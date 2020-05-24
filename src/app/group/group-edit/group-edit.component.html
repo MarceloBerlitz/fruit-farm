@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="busca-arvore">Árvores</label>
             <select id="busca-arvore" class="form-control selectpicker" multiple formControlName="trees">
-                <option *ngFor="let tree of trees" [value]="tree._id" selected>{{ tree.species.description }} - {{ tree.description }}</option>
+                <option *ngFor="let tree of trees" [value]="tree._id">{{ tree.species.description }} - {{ tree.description }}</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary float-right">Salvar</button>

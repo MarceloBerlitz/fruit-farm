@@ -69,4 +69,8 @@ export class TreeDetailsComponent implements OnInit {
     }
   }
 
+  public editTree(): void {
+    this.router.navigate([`arvores/${this.tree.value}/editar`]);
+  }
+
 }

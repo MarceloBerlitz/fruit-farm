@@ -14,6 +14,7 @@ import { CropListComponent } from './crop/crop-list/crop-list.component';
 import { CropCreateComponent } from './crop/crop-create/crop-create.component';
 import { CropDetailsComponent } from './crop/crop-details/crop-details.component';
 import { GroupEditComponent } from './group/group-edit/group-edit.component';
+import { TreeEditComponent } from './tree/tree-edit/tree-edit.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,10 @@ const routes: Routes = [
     path: 'arvores', children: [
     { path: '', component: TreeListComponent },
     { path: 'nova', component: TreeCreateComponent },
-    { path: ':id', component: TreeDetailsComponent }
+    { path: ':id', children: [
+      { path: '', component: TreeDetailsComponent },
+      { path: 'editar', component: TreeEditComponent }
+    ]}
   ]},
   {
     path: 'especies', children: [

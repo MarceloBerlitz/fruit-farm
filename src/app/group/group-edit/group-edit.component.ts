@@ -36,13 +36,12 @@ export class GroupEditComponent implements OnInit {
           this.form.controls['name'].setValue(res.name);
           this.form.controls['description'].setValue(res.description);
           this.form.controls['trees'].setValue(res.trees);
+          this.updateSelect();
       });
 
     this.treeService.getAll().subscribe(res => {
       this.trees = res;
-      setTimeout(() => {
-        $('.selectpicker').selectpicker('refresh');
-      })
+      this.updateSelect();
     });
   }
 
@@ -56,13 +55,19 @@ export class GroupEditComponent implements OnInit {
         trees: this.form.controls['trees'].value
       }).subscribe(res => {
         alert('Grupo editado com sucesso!');
-        this.router.navigate(['groups']);
+        this.router.navigate([`groups/${this.id}`]);
       }, err => {
         alert(JSON.stringify(err));
       })
     } else {
       alert('Formulário inválido.')
     }
+  }
+
+  private updateSelect() {
+    setTimeout(() => {
+      $('.selectpicker').selectpicker('refresh');
+    });
   }
 
 }

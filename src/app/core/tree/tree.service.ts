@@ -40,4 +40,8 @@ export class TreeService {
     return this.http.delete<void>(`${environment.baseUrl}/trees/${id}`);
   }
 
+  public edit(id: string, tree: any): Observable<any> {
+    return this.http.put<any>(`${environment.baseUrl}/trees/${id}`, tree);
+  }
+
 }
