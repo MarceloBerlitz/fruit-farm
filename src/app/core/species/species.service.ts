@@ -18,4 +18,8 @@ export class SpeciesService {
     return this.http.get(`${environment.baseUrl}/species/${id}`);
   }
 
+  public create(species: any): Observable<any> {
+    return this.http.post(`${environment.baseUrl}/species`, species);
+  }
+
 }
