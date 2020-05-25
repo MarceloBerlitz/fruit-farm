@@ -17,7 +17,7 @@ import { SpeciesService } from './species/species.service';
     GroupService,
     TreeService,
     CropService,
-    SpeciesService
+    SpeciesService,
   ]
 })
 export class CoreModule { }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { switchMap, tap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
 
 import { TreeService } from 'src/app/core/tree/tree.service';
 import { GroupService } from 'src/app/core/group/group.service';
@@ -24,7 +27,8 @@ export class TreeDetailsComponent implements OnInit {
     private treeService: TreeService,
     private groupService: GroupService,
     private cropService: CropService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -63,9 +67,9 @@ export class TreeDetailsComponent implements OnInit {
     if(confirm(`Deseja mesmo excluir a árvore ${this.tree.text}?`)) {
       this.treeService.delete(this.tree.value)
         .subscribe(res => {
-        alert('Árvore excluída com sucesso.');
+        this.toastr.success('Árvore excluída com sucesso.');
         this.router.navigate(['/arvores']);
-      }, res => alert(JSON.stringify(res)));
+      }, res => this.toastr.error(JSON.stringify(res)));
     }
   }
 

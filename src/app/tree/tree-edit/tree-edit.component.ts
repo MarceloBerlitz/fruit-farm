@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { ToastrService } from 'ngx-toastr';
+
 import { SpeciesService } from 'src/app/core/species/species.service';
 import { TreeService } from 'src/app/core/tree/tree.service';
-import { Router, ActivatedRoute } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -25,7 +28,8 @@ export class TreeEditComponent implements OnInit {
     private speciesService: SpeciesService,
     private treeService: TreeService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -54,13 +58,13 @@ export class TreeEditComponent implements OnInit {
         date: this.form.controls['date'].value,
         species: this.form.controls['species'].value
       }).subscribe(res => {
-        alert('Árvore editada com sucesso!');
+        this.toastr.success('Árvore editada com sucesso!');
         this.router.navigate([`/arvores/${this.id}`]);
       }, err => {
-        alert(JSON.stringify(err));
+        this.toastr.error(JSON.stringify(err));
       })
     } else {
-      alert('Formulário inválido.');
+      this.toastr.error('Formulário inválido.');
     }
   }
 

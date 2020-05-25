@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { TreeService } from 'src/app/core/tree/tree.service';
 import { GroupService } from 'src/app/core/group/group.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 
 @Component({
@@ -25,7 +26,8 @@ export class GroupEditComponent implements OnInit {
     private treeService: TreeService,
     private groupService: GroupService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -54,13 +56,13 @@ export class GroupEditComponent implements OnInit {
         description: this.form.controls['description'].value,
         trees: this.form.controls['trees'].value
       }).subscribe(res => {
-        alert('Grupo editado com sucesso!');
+        this.toastr.success('Grupo editado com sucesso!');
         this.router.navigate([`/grupos/${this.id}`]);
       }, err => {
-        alert(JSON.stringify(err));
+        this.toastr.error(JSON.stringify(err));
       })
     } else {
-      alert('Formulário inválido.')
+      this.toastr.error('Formulário inválido.')
     }
   }
 

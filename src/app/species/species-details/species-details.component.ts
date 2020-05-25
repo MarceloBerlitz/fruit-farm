@@ -7,6 +7,7 @@ import { ListItemModel } from 'src/app/shared/list-item/list-item.model';
 import { SpeciesService } from 'src/app/core/species/species.service';
 import { TreeService } from 'src/app/core/tree/tree.service';
 import { CropService } from 'src/app/core/crop/crop.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-species-details',
@@ -24,7 +25,8 @@ export class SpeciesDetailsComponent implements OnInit {
     private treeService: TreeService,
     private cropService: CropService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -59,9 +61,9 @@ export class SpeciesDetailsComponent implements OnInit {
     if(confirm(`Deseja mesmo excluir a espécie ${this.species.title}?`)) {
       this.speciesService.delete(this.species.value)
         .subscribe(res => {
-          alert('Espécie excluída com sucesso.');
+          this.toastr.success('Espécie excluída com sucesso.');
           this.router.navigate(['/especies']);
-        }, res => alert(JSON.stringify(res)));
+        }, res => this.toastr.error(JSON.stringify(res)));
     }
   }
 

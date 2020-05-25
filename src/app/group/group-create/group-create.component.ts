@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { GroupService } from 'src/app/core/group/group.service';
 import { TreeService } from 'src/app/core/tree/tree.service';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 
 @Component({
@@ -23,7 +24,8 @@ export class GroupCreateComponent implements OnInit {
   constructor(
     private router: Router,
     private treeService: TreeService,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -42,13 +44,13 @@ export class GroupCreateComponent implements OnInit {
         description: this.form.controls['description'].value,
         trees: this.form.controls['trees'].value
       }).subscribe(res => {
-        alert('Grupo criado com sucesso!');
+        this.toastr.success('Grupo criado com sucesso!');
         this.router.navigate(['/groups']);
       }, err => {
-        alert(JSON.stringify(err));
+        this.toastr.error(JSON.stringify(err));
       })
     } else {
-      alert('Formulário inválido.')
+      this.toastr.error('Formulário inválido.')
     }
   }
 

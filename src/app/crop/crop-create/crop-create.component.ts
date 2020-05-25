@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { CropService } from 'src/app/core/crop/crop.service';
 import { TreeService } from 'src/app/core/tree/tree.service';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 
 @Component({
@@ -25,7 +26,8 @@ export class CropCreateComponent implements OnInit {
   constructor(
     private cropService: CropService,
     private treeService: TreeService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -46,13 +48,13 @@ export class CropCreateComponent implements OnInit {
         tree: this.form.controls['tree'].value,
         grossWeight: this.form.controls['grossWeight'].value
       }).subscribe(res => {
-        alert('Colheita cadastrada com sucesso!');
+        this.toastr.success('Colheita cadastrada com sucesso!');
         this.router.navigate(['/colheitas']);
       }, err => {
-        alert(JSON.stringify(err));
+        this.toastr.error(JSON.stringify(err));
       })
     } else {
-      alert('Formulário inválido.');
+      this.toastr.error('Formulário inválido.');
     }
   }
 

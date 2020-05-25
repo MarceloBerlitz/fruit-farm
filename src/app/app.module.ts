@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { GroupModule } from './group/group.module';
 import { TreeModule } from './tree/tree.module';
 import { SpeciesModule } from './species/species.module';
 import { CropModule } from './crop/crop.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CropModule } from './crop/crop.module';
     GroupModule,
     TreeModule,
     SpeciesModule,
-    CropModule
+    CropModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]

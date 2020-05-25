@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { switchMap, tap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs'
+import { ToastrService } from 'ngx-toastr';
 
 import { GroupService } from 'src/app/core/group/group.service';
 import { ListItemModel } from 'src/app/shared/list-item/list-item.model';
@@ -25,7 +26,8 @@ export class GroupDetailsComponent implements OnInit {
     private router: Router,
     private groupService: GroupService,
     private treeService: TreeService,
-    private cropService: CropService
+    private cropService: CropService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -53,16 +55,18 @@ export class GroupDetailsComponent implements OnInit {
           text: crop.info ? crop.info[0] : '',
           footer: `${crop.grossWeight}kg`
         }));
-      }, alert);
+      }, err => {
+        this.toastr.error(JSON.stringify(err));
+      });
   }
 
   public deleteGroup(): void {
     if(confirm(`Deseja mesmo excluir o grupo ${this.group.title}?`)) {
       this.groupService.delete(this.group.value)
         .subscribe(res => {
-          alert('Grupo excluído com sucesso.');
+          this.toastr.success('Grupo excluído com sucesso.');
           this.router.navigate(['/grupos']);
-        }, res => alert(JSON.stringify(res)));
+        }, res => this.toastr.error(JSON.stringify(res)));
     }
   }
 

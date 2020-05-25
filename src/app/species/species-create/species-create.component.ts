@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { ToastrService } from 'ngx-toastr';
+
 import { SpeciesService } from 'src/app/core/species/species.service';
 
 @Component({
@@ -17,7 +19,8 @@ export class SpeciesCreateComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: SpeciesService
+    private service: SpeciesService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -28,13 +31,13 @@ export class SpeciesCreateComponent implements OnInit {
       this.service.create({
         description: this.form.controls['description'].value
       }).subscribe(res => {
-        alert('Espécie cadastrada com sucesso!');
+        this.toastr.success('Espécie cadastrada com sucesso!');
         this.router.navigate(['/especies']);
       }, err => {
-        alert(JSON.stringify(err));
+        this.toastr.error(JSON.stringify(err));
       })
     } else {
-      alert('Formulário inválido.');
+      this.toastr.error('Formulário inválido.');
     }
   }
 

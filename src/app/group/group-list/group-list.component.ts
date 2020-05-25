@@ -4,6 +4,7 @@ import { tap, switchMap, catchError } from 'rxjs/operators';
 
 import { GroupService } from '../../core/group/group.service';
 import { ListItemModel } from 'src/app/shared/list-item/list-item.model';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class GroupListComponent implements OnInit {
   public groupList: ListItemModel[] = [];
 
   constructor(
-    private service: GroupService
+    private service: GroupService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class GroupListComponent implements OnInit {
             }));
         }),
         catchError(err => {
-          alert(JSON.stringify(err));
+          this.toastr.error(JSON.stringify(err));
           return of(null);
         })
       )

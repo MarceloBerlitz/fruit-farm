@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { ToastrService } from 'ngx-toastr';
+
 import { CropService } from 'src/app/core/crop/crop.service';
 import { ListItemModel } from 'src/app/shared/list-item/list-item.model';
 
@@ -16,7 +18,8 @@ export class CropDetailsComponent implements OnInit {
   constructor(
     private service: CropService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -35,9 +38,9 @@ export class CropDetailsComponent implements OnInit {
     if(confirm(`Deseja mesmo excluir a colheita ${this.crop.title}?`)) {
       this.service.delete(this.crop.value)
         .subscribe(res => {
-        alert('Colheita excluída com sucesso.');
+        this.toastr.success('Colheita excluída com sucesso.');
         this.router.navigate(['/colheitas']);
-      }, res => alert(JSON.stringify(res)));
+      }, res => this.toastr.error(JSON.stringify(res)));
     }
   }
 
