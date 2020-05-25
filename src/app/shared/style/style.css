@@ -10,3 +10,9 @@
     font-size: .8rem;
     color: #555;
 }
+
+.loader {
+    width: 100%;
+    padding-top: 2rem;
+    text-align: center;
+}
