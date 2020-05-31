@@ -2,5 +2,6 @@
     <div class="sub-menu">
         <a class="btn btn-secondary" href="#" routerLink="/arvores/nova">Nova árvore</a>
     </div>
-    <app-list-item *ngFor="let item of treeList" [model]="item"></app-list-item>
+    <app-loading *ngIf="loading"></app-loading>
+    <app-list [items]="treeList"></app-list>
 </div>

@@ -1,33 +1,20 @@
 <div class="container">
     <div class="sub-menu">
-        <button class="btn btn-secondary" (click)="editGroup()">Editar grupo</button>
-        <button class="btn btn-danger" (click)="deleteGroup()">Excluir grupo</button>
+        <button class="btn btn-secondary" (click)="editGroup()">Editar</button>
+        <button class="btn btn-danger" (click)="deleteGroup()">Excluir</button>
     </div>
-    <div class="loader" *ngIf="loading.group">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+    <app-loading *ngIf="loading.group"></app-loading>
     <app-list-item *ngIf="group" [model]="group"></app-list-item>
     <div class="row">
         <div class="col-md-6">
             <h2>Árvores</h2>
-            <div class="loader" *ngIf="loading.trees">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-            <app-list-item *ngFor="let tree of trees" [model]="tree"></app-list-item>
+            <app-loading *ngIf="loading.trees"></app-loading>
+            <app-list [items]="trees"></app-list>
         </div>
         <div class="col-md-6">
             <h2>Colheitas</h2>
-            <div class="loader" *ngIf="loading.crops">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-            <app-list-item *ngFor="let crop of crops" [model]="crop"></app-list-item>
-
+            <app-loading *ngIf="loading.crops"></app-loading>
+            <app-list [items]="crops"></app-list>
         </div>
     </div>
 </div>

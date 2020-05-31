@@ -2,10 +2,6 @@
     <div class="sub-menu">
         <a class="btn btn-secondary" href="#" routerLink="/grupos/novo">Novo grupo</a>
     </div>
-    <div class="loader" *ngIf="loading">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <app-list-item *ngFor="let item of groupList" [model]="item"></app-list-item>
+    <app-loading *ngIf="loading"></app-loading>
+    <app-list [items]="groupList"></app-list>
 </div>
